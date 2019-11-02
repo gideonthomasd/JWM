@@ -8,7 +8,7 @@ sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings pcmanfm
 sudo pacman -S networkmanager network-manager-applet
 sudo pacman -S xorg-server xorg xorg-xinit
 sudo pacman -S moka-icon-theme
-sudo pacman -S w3m jwm
+sudo pacman -S w3m jwm conky
 sudo pacman -S pavucontrol pulseaudio
 sudo pacman -S gmrun termite
 sudo pacman -S neofetch rofi oblogout gtk2-perl lsb-release
