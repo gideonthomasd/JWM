@@ -1,3 +1,7 @@
+#!/bin/bash
+set -e
+
+
 yay -S brother-mfc-j4510dw
 yay -S brother-brgenml1
 yay -S brother-dcp7055
