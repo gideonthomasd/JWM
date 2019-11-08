@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<JWM>
+
+    <!-- The root menu. -->
+    <RootMenu onroot="12">
+        <Include>exec: xdgmenumaker -n -i -f jwm</Include>
+        <Separator/>
+        <Program icon="xxterm.png" label="xTerminal">xterm</Program>
+        <Program icon="firefox-nightly.png" label="Firefox">firefox</Program>
+        <Program icon="terminator.png" label="Termite">termite</Program>
+        <Program icon="thunar.png" label="PCManFM">pcmanfm</Program>
+
+        <Separator/>
+        <Program icon="geany.png" label=".jwmrc">geany ~/.jwmrc</Program>
+        <Separator/>
+        <Restart label="Restart" icon="system-reboot.png"/>
+        <Exit label="Logout" confirm="true" icon="system-run.png"/>
+        <Program icon="stock_exit.png" label="Exit">oblogout</Program>
+    </RootMenu>
+
+    <!-- Options for program groups. -->
+    <Group>
+        <Option>tiled</Option>
+        <Option>aerosnap</Option>
+    </Group>
+    <Group>
+        <Class>Pidgin</Class>
+        <Option>sticky</Option>
+    </Group>
+    <Group>
+        <Name>xterm</Name>
+        <Option>vmax</Option>
+    </Group>
+    <Group>
+        <Name>xclock</Name>
+        <Option>drag</Option>
+        <Option>notitle</Option>
+    </Group>
+
+    <!-- Tray at the bottom. -->
+    <Tray x="0" y="-1" valign="bottom" halign="left" height="48" autohide="off">
+
+        <TrayButton icon="abiword.png">exec:~/bin/rofi_run</TrayButton>
+        <Spacer width="2"/>
+        <TrayButton label="_">showdesktop</TrayButton>
+        <Spacer width="2"/>
+
+        <Pager labeled="true"/>
+
+        <TaskList maxwidth="106"/>
+
+        <Dock/>echo 
+       <!-- <TrayButton popup="Termite" icon=notify-send -i geany>exec:geany</TrayButton> -->
+       <TrayButton popup="mpv" icon="gnome-mpv.png">exec:mpv --player-operation-mode=pseudo-gui</TrayButton>
+       <TrayButton popup="Netsurf" icon="chromium.png">exec:netsurf</TrayButton>
+        <TrayButton popup="Termite" icon="terminator.png">exec:termite</TrayButton>
+        <!--<TrayButton popup="Terminal" icon="xxterm.png">exec:xterm</TrayButton> -->
+        <TrayButton popup="firefox" icon="firefox-nightly.png">exec:firefox</TrayButton>
+        <TrayButton popup="File Manager" icon="thunar.png">exec:pcmanfm</TrayButton>
+        <Swallow name="conky" width="135">conky</Swallow>
+        <Clock format="%H:%M"><Button mask="123">exec:xclock</Button></Clock>
+
+    </Tray>
+
+    <!-- Visual Styles -->
+    <WindowStyle>
+        <Font>Sans-10:bold</Font>
+        <Width>4</Width>
+        <Height>32</Height>
+        <Corner>3</Corner>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#555555</Background>
+        <Outline>#000000</Outline>
+        <Opacity>0.5</Opacity>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#007777</Background>
+            <Outline>#000000</Outline>
+            <Opacity>1.0</Opacity>
+        </Active>
+    </WindowStyle>
+    <TrayStyle group="true" list="all">
+        <Font>Sans-10:bold</Font>
+        <Background>#333333</Background>
+        <Foreground>#FFFFFF</Foreground>
+        <Outline>#000000</Outline>
+        <Opacity>0.75</Opacity>
+    </TrayStyle>
+    <TaskListStyle>
+      <Font>Sans-10</Font>
+      <Active>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#555555</Background>
+      </Active>
+      <Foreground>#FFFFFF</Foreground>
+      <Background>#333333</Background>
+    </TaskListStyle>
+    <PagerStyle>
+        <Outline>#000000</Outline>
+        <Foreground>#555555</Foreground>
+        <Background>#333333</Background>
+        <Text>#FFFFFF</Text>
+        <Active>
+            <Foreground>#0077CC</Foreground>
+            <Background>#004488</Background>
+        </Active>
+    </PagerStyle>
+    <MenuStyle>
+        <Font>Sans-13</Font>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#333333</Background>
+        <Outline>#000000</Outline>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#0077CC</Background>
+        </Active>
+        <Opacity>0.85</Opacity>
+    </MenuStyle>
+    <PopupStyle>
+        <Font>Sans-9</Font>
+        <Foreground>#000000</Foreground>
+        <Background>#999999</Background>
+    </PopupStyle>
+    
+   	
+	<ButtonClose type="image">button_blue_close.png</ButtonClose>
+	<ButtonMax type="image">max.png</ButtonMax>
+	<ButtonMin type="image">gaupol.png</ButtonMin>
+	
+    <!-- Path where icons can be found.
+         IconPath can be listed multiple times to allow searching
+         for icons in multiple paths.
+      -->
+    <IconPath>
+        /usr/share/icons/wm-icons/32x32-aquafusion
+    </IconPath>
+    <IconPath>
+        /usr/share/jwm
+    </IconPath>
+
+    <!-- Virtual Desktops -->
+    <!-- Desktop tags can be contained within Desktops for desktop names. -->
+    <Desktops width="2" height="2">
+        <!-- Default background. Note that a Background tag can be
+              contained within a Desktop tag to give a specific background
+              for that desktop.
+         -->
+        <Background type="command">nitrogen --restore</Background>
+    </Desktops>
+
+    <!-- Double click speed (in milliseconds) -->
+    <DoubleClickSpeed>400</DoubleClickSpeed>
+
+    <!-- Double click delta (in pixels) -->
+    <DoubleClickDelta>2</DoubleClickDelta>
+
+    <!-- The focus model (sloppy or click) -->
+    <FocusModel>sloppy</FocusModel>
+
+    <!-- The snap mode (none, screen, or border) -->
+    <SnapMode distance="10">border</SnapMode>
+
+    <!-- The move mode (outline or opaque) -->
+    <MoveMode>opaque</MoveMode>
+
+    <!-- The resize mode (outline or opaque) -->
+    <ResizeMode>opaque</ResizeMode>
+
+    <!-- <StartupCommand>xrandr --output Virtual1 --mode 1680x1050</StartupCommand> -->
+    <StartupCommand>nm-applet &</StartupCommand>
+    <StartupCommand>volumeicon &</StartupCommand>
+    <!-- <StartupCommand>/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &</StartupCommand> -->
+	<StartupCommand>lxpolkit &</StartupCommand>
+    <!-- Key bindings -->
+    <Key key="Up">up</Key>
+    <Key key="Down">down</Key>
+    <Key key="Right">right</Key>
+    <Key key="Left">left</Key>
+    <Key key="h">left</Key>
+    <Key key="j">down</Key>
+    <Key key="k">up</Key>
+    <Key key="l">right</Key>
+    <Key key="Return">select</Key>
+    <Key key="Escape">escape</Key>
+
+    <Key mask="A" key="Tab">nextstacked</Key>
+    <Key mask="A" key="F4">close</Key>
+    <Key mask="A" key="#">desktop#</Key>
+    <Key mask="A" key="F1">root:1</Key>
+    <Key mask="A" key="F2">window</Key>
+    <Key mask="A" key="F10">maximize</Key>
+    <Key mask="A" key="Right">rdesktop</Key>
+    <Key mask="A" key="Left">ldesktop</Key>
+    <Key mask="A" key="Up">udesktop</Key>
+    <Key mask="A" key="Down">ddesktop</Key>
+
+</JWM>
